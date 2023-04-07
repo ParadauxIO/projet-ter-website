@@ -3,103 +3,7 @@ import Navbar from "../components/Navbar"
 import "./Index.scss"
 import { getMainTable } from "../partials/italyDataHandler"
 import { useTable } from "react-table";
-
-function MyTable({table}) {
-    const {
-        getTableProps,
-        getTableBodyProps,
-        headerGroups,
-        rows,
-        prepareRow,
-     
-      } = table
-
-    return (
-         // apply the table props
-
-   <table {...getTableProps()}>
-
-   <thead>
-
-     {// Loop over the header rows
-
-     headerGroups.map(headerGroup => (
-
-       // Apply the header row props
-
-       <tr {...headerGroup.getHeaderGroupProps()}>
-
-         {// Loop over the headers in each row
-
-         headerGroup.headers.map(column => (
-
-           // Apply the header cell props
-
-           <th {...column.getHeaderProps()}>
-
-             {// Render the header
-
-             column.render('Header')}
-
-           </th>
-
-         ))}
-
-       </tr>
-
-     ))}
-
-   </thead>
-
-   {/* Apply the table body props */}
-
-   <tbody {...getTableBodyProps()}>
-
-     {// Loop over the table rows
-
-     rows.map(row => {
-
-       // Prepare the row for display
-
-       prepareRow(row)
-
-       return (
-
-         // Apply the row props
-
-         <tr {...row.getRowProps()}>
-
-           {// Loop over the rows cells
-
-           row.cells.map(cell => {
-
-             // Apply the cell props
-
-             return (
-
-               <td {...cell.getCellProps()}>
-
-                 {// Render the cell contents
-
-                 cell.render('Cell')}
-
-               </td>
-
-             )
-
-           })}
-
-         </tr>
-
-       )
-
-     })}
-
-   </tbody>
-
- </table>
-    )
-}
+import TerTable from "../components/TerTable";
 
 export default function Index() {
     let [tableDataRaw, setTableDataRaw] = useState([]);
@@ -125,7 +29,6 @@ export default function Index() {
             }
             console.log(tableDataRaw)
             setColumnData(columns);
-
         }
 
         load();
@@ -139,7 +42,7 @@ export default function Index() {
                     Main Table
                 </h1>
                 <div className="my-table">
-                <MyTable table={tableInstance}/>
+                    <TerTable table={tableInstance}/>
                 </div>
             </div>
         </main>

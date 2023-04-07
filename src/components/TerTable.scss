@@ -1,0 +1,19 @@
+table, td, th {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+.ter-table {
+    font-family: 'Open Sans', sans-serif;
+    
+
+    th {
+        text-decoration: underline;
+        padding: 0.5rem;
+    }
+
+    td {
+        white-space: pre-line;
+        padding: 0.5rem;
+    }
+}

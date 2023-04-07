@@ -5,7 +5,7 @@ import { getMainTable } from "../partials/italyDataHandler"
 import { useTable } from "react-table";
 import TerTable from "../components/TerTable";
 
-export default function Index() {
+export default function CoordinatesView() {
     let [tableDataRaw, setTableDataRaw] = useState([]);
     let [columnData, setColumnData] = useState([]);
 
@@ -16,17 +16,30 @@ export default function Index() {
             let rawTableData = await getMainTable();
             setTableDataRaw(rawTableData);
 
-            let columns = [];
-            for (let row of rawTableData) {
-                for (let key of Object.keys(row)) {
-                    if (!doesContainNestedKeyValue(columns, 'Header', key)) {
-                        columns.push({
-                            Header: key,
-                            accessor: key
-                        })
-                    }
-                }
-            }
+            let columns = [
+                {
+                Header: "Name",
+                accessor: "name"
+                }, {
+                    Header: "coordinates_ge_osm",
+                    accessor: "coordinates_ge_osm"
+                },{
+                    Header: "s_centre",
+                    accessor: "s_centre"
+                },{
+                    Header: "coordinates_polygon_ge",
+                    accessor: "coordinates_polygon_ge"
+                },{
+                    Header: "coordinates_centre_georectified",
+                    accessor: "coordinates_polygon_georectified"
+                },{
+                    Header: "archives_list",
+                    accessor: "archives_list"
+                },{
+                    Header: "archives_list_text",
+                    accessor: "archives_list_text"
+                },
+            ];
             console.log(tableDataRaw)
             setColumnData(columns);
         }
@@ -39,7 +52,7 @@ export default function Index() {
             <Navbar/>
             <div className="table-content">
                 <h1 className="table-header">
-                    Main Table
+                    Coordinates Table (WIP)
                 </h1>
                 <div className="my-table">
                     <TerTable table={tableInstance}/>

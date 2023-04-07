@@ -35,11 +35,6 @@ export const getMainTable = async () => {
         rows.push(rowDataRaw);
     }
 
-
-
-
-
-
     // if (data) console.log(returnObj);
     // if (error) console.error(error);
 

@@ -7,12 +7,17 @@ import {
 import { RecoilRoot } from 'recoil'
 import Index from './views/Index';
 import "./global.scss"
+import CoordinatesView from './views/CoordinatesView';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Index/>,
   },
+  {
+    path: "/coordinates",
+    element: <CoordinatesView/> 
+  }
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(

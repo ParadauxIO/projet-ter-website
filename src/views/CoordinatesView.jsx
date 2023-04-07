@@ -52,7 +52,7 @@ export default function CoordinatesView() {
             <div className="table-content">
                 <div className="table-header">
                     <h1>
-                        Coordinates Tabl
+                        Coordinates Table
                     </h1>
                     <p> Work in progress, shows only tables with coordinate data </p>
                 </div>

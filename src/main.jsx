@@ -8,16 +8,23 @@ import { RecoilRoot } from 'recoil'
 import Index from './views/Index';
 import "./global.scss"
 import CoordinatesView from './views/CoordinatesView';
+import Home from './views/Home';
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Index/>,
+    element: <Index />,
+    children: [{
+      index: true,
+      element: <Home/>
+    },
+    {
+      path: "coordinates",
+      element: <CoordinatesView />
+    }
+    ]
   },
-  {
-    path: "/coordinates",
-    element: <CoordinatesView/> 
-  }
+
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(

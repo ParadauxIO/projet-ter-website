@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react"
-import Navbar from "../components/Navbar"
-import "./Index.scss"
+import "./Home.scss"
 import { getMainTable } from "../partials/italyDataHandler"
 import { useTable } from "react-table";
 import TerTable from "../components/TerTable";
@@ -48,11 +47,17 @@ export default function CoordinatesView() {
     }, [])
 
     return (
-        <main className="index">
-            <Navbar/>
+        <main className="main home">
+
             <div className="table-content">
-                <h1 className="table-header">
-                    Coordinates Table (WIP)
+                <div className="table-header">
+                    <h1>
+                        Coordinates Tabl
+                    </h1>
+                    <p> Work in progress, shows only tables with coordinate data </p>
+                </div>
+                <h1 className="">
+                    
                 </h1>
                 <div className="my-table">
                     <TerTable table={tableInstance}/>

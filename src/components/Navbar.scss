@@ -1,12 +1,26 @@
 nav.desktop-nav {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
 
     background-color: #5C6F68;
     color: white;
     font-family: 'Nunito';
     font-size: 1.3rem;
     padding: 1rem 0.75rem;
+
+    .logo {
+        padding-left: 2rem;
+        font-weight: bold;
+        font-size: 1.5rem;
+    }
+
+    .nav-links {
+        display: flex;
+        margin-right: 2rem;
+        a {
+            margin-left: 2rem;
+        }
+    }
 
     a {
         text-decoration: none;

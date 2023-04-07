@@ -1,3 +1,4 @@
+import Footer from "./Footer"
 import "./Navbar.scss"
 
 export default function Navbar() {

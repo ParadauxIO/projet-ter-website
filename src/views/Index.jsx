@@ -4,6 +4,7 @@ import "./Index.scss"
 import { getMainTable } from "../partials/italyDataHandler"
 import { useTable } from "react-table";
 import TerTable from "../components/TerTable";
+import Footer from "../components/Footer";
 
 export default function Index() {
     let [tableDataRaw, setTableDataRaw] = useState([]);
@@ -45,6 +46,7 @@ export default function Index() {
                     <TerTable table={tableInstance}/>
                 </div>
             </div>
+            <Footer/>
         </main>
     )
 }

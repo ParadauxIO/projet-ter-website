@@ -1,8 +1,12 @@
 import { useEffect, useState } from "react"
 import "./Home.scss"
-import { getMainTable } from "../partials/italyDataHandler"
+import { getMainTable, getSelectedColumnNames } from "../partials/italyDataHandler"
 import { useTable } from "react-table";
 import TerTable from "../components/TerTable";
+
+const desiredColumns = ["name", "coordinates_ge_osm", "s_centre", 
+"coordinates_polygon_ge", "coordinates_centre_georectified", 
+"archives_list", "archives_list_text"];
 
 export default function CoordinatesView() {
     let [tableDataRaw, setTableDataRaw] = useState([]);
@@ -13,33 +17,9 @@ export default function CoordinatesView() {
     useEffect(() => {
         async function load() {
             let rawTableData = await getMainTable();
-            setTableDataRaw(rawTableData);
+            let columns = await getSelectedColumnNames(desiredColumns);
 
-            let columns = [
-                {
-                Header: "Name",
-                accessor: "name"
-                }, {
-                    Header: "coordinates_ge_osm",
-                    accessor: "coordinates_ge_osm"
-                },{
-                    Header: "s_centre",
-                    accessor: "s_centre"
-                },{
-                    Header: "coordinates_polygon_ge",
-                    accessor: "coordinates_polygon_ge"
-                },{
-                    Header: "coordinates_centre_georectified",
-                    accessor: "coordinates_polygon_georectified"
-                },{
-                    Header: "archives_list",
-                    accessor: "archives_list"
-                },{
-                    Header: "archives_list_text",
-                    accessor: "archives_list_text"
-                },
-            ];
-            console.log(tableDataRaw)
+            setTableDataRaw(rawTableData);
             setColumnData(columns);
         }
 
@@ -56,21 +36,10 @@ export default function CoordinatesView() {
                     </h1>
                     <p> Work in progress, shows only tables with coordinate data </p>
                 </div>
-                <h1 className="">
-                    
-                </h1>
                 <div className="my-table">
                     <TerTable table={tableInstance}/>
                 </div>
             </div>
         </main>
     )
-}
-
-let doesContainNestedKeyValue = (array, key, value) => {
-    for (let v of array) {
-        if (v[key] && v[key] == value) return true;
-    }
-
-    return false;
 }

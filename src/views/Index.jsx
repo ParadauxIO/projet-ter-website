@@ -9,8 +9,8 @@ export default function Index() {
 
 
     return (
-        <div class="grid-container">
-            <header class="header"></header>
+        <div className="grid-container">
+            <header className="header"></header>
             <Sidebar/>
             <Outlet/>
             <Footer/>

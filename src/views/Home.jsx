@@ -1,4 +1,4 @@
-import { getMainTable } from "../partials/italyDataHandler"
+import { getColumnNames, getMainTable } from "../partials/italyDataHandler"
 import { useTable } from "react-table";
 import TerTable from "../components/TerTable";
 import { useEffect, useState } from "react"
@@ -15,17 +15,9 @@ export default function Home() {
             let rawTableData = await getMainTable();
             setTableDataRaw(rawTableData);
 
-            let columns = [];
-            for (let row of rawTableData) {
-                for (let key of Object.keys(row)) {
-                    if (!doesContainNestedKeyValue(columns, 'Header', key)) {
-                        columns.push({
-                            Header: key,
-                            accessor: key
-                        })
-                    }
-                }
-            }
+            let columns = await getColumnNames();
+
+            console.log(columns)
             console.log(tableDataRaw)
             setColumnData(columns);
         }
@@ -50,12 +42,4 @@ export default function Home() {
             </div>
         </main>
     );
-}
-
-let doesContainNestedKeyValue = (array, key, value) => {
-    for (let v of array) {
-        if (v[key] && v[key] == value) return true;
-    }
-
-    return false;
 }

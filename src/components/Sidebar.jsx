@@ -9,8 +9,8 @@ export default function Sidebar() {
             </div>
 
             <div className="links">
-                <a className="link active"> Home </a>
-                <a className="link"> Coordinate Table </a>
+                <a href="/" className="link active"> Home </a>
+                <a href="/coordinates" className="link"> Coordinate Table </a>
                 More to come!
             </div>
         </aside>

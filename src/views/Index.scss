@@ -15,20 +15,20 @@
   /* Give every child element its grid name */
   .header {
     grid-area: header;
-    background-color: #648ca6;
+    background-color: #F6F6F6;
   }
   
   .sidenav {
     grid-area: sidenav;
-    background-color: #394263;
+    background-color: #F7F7F7;
   }
   
   .main {
     grid-area: main;
-    background-color: #8fd4d9;
+    background-color: #FFFFFF;
   }
   
   .footer {
     grid-area: footer;
-    background-color: #648ca6;
+    background-color: #F6F6F6;
   }

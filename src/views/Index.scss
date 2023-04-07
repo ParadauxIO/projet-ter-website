@@ -1,15 +1,34 @@
-main.index {
-    background-color: #8AA39B;
-    width: 100vw;
-    height: 100dvh;
-}
+/* Simple dashboard grid CSS */
 
-.my-table {
-    margin: 1rem;
-    padding: 1rem;
-    width: 90%;
-    height: 70dvh;
-    overflow-x: auto;
-    overflow-y: auto;
-    white-space: nowrap;
-}
+/* Assign grid instructions to our parent grid container */
+.grid-container {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    grid-template-rows: 50px 1fr 50px;
+    grid-template-areas:
+      "sidenav header"
+      "sidenav main"
+      "sidenav footer";
+    height: 100vh;
+  }
+  
+  /* Give every child element its grid name */
+  .header {
+    grid-area: header;
+    background-color: #648ca6;
+  }
+  
+  .sidenav {
+    grid-area: sidenav;
+    background-color: #394263;
+  }
+  
+  .main {
+    grid-area: main;
+    background-color: #8fd4d9;
+  }
+  
+  .footer {
+    grid-area: footer;
+    background-color: #648ca6;
+  }

@@ -5,6 +5,8 @@ import { getMainTable } from "../partials/italyDataHandler"
 import { useTable } from "react-table";
 import TerTable from "../components/TerTable";
 import Footer from "../components/Footer";
+import Sidebar from "../components/Sidebar";
+import { Outlet } from "react-router-dom";
 
 export default function Index() {
     let [tableDataRaw, setTableDataRaw] = useState([]);
@@ -36,18 +38,12 @@ export default function Index() {
     }, [])
 
     return (
-        <main className="index">
-            <Navbar/>
-            <div className="table-content">
-                <h1 className="table-header">
-                    Main Table
-                </h1>
-                <div className="my-table">
-                    <TerTable table={tableInstance}/>
-                </div>
-            </div>
+        <div class="grid-container">
+            <header class="header"></header>
+            <Sidebar/>
+            <Outlet/>
             <Footer/>
-        </main>
+        </div>
     )
 }
 

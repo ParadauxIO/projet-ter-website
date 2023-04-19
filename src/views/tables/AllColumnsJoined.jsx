@@ -1,29 +1,12 @@
 import "../Home.scss"
-import { getColumnNames, getMainTable } from "../../partials/italyDataHandler"
 import { useTable } from "react-table";
 import TerTable from "../../components/TerTable";
-import { useEffect, useState } from "react"
+import useDbData from "../../state/hooks/useDbData";
 
 export default function AllColumnsJoined() {
-    let [tableDataRaw, setTableDataRaw] = useState([]);
-    let [columnData, setColumnData] = useState([]);
+    const {columns, rows} = useDbData();
 
-    const tableInstance = useTable({ columns: columnData, data: tableDataRaw })
-
-    useEffect(() => {
-        async function load() {
-            let rawTableData = await getMainTable();
-            setTableDataRaw(rawTableData);
-
-            let columns = await getColumnNames();
-
-            console.log(columns)
-            console.log(tableDataRaw)
-            setColumnData(columns);
-        }
-
-        load();
-    }, [])
+    const tableInstance = useTable({ columns: columns, data: rows })
 
     return (
         <main className="main home">

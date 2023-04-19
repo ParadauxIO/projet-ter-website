@@ -1,34 +1,18 @@
-import { useEffect, useState } from "react"
 import "../Home.scss"
-import { getMainTable, getSelectedColumnNames } from "../../partials/italyDataHandler"
 import { useTable } from "react-table";
 import TerTable from "../../components/TerTable";
-
-const desiredColumns = ["name", "coordinates_ge_osm", "s_centre", 
-"coordinates_polygon_ge", "coordinates_centre_georectified", 
-"archives_list", "archives_list_text"];
+import useDbData from "../../state/hooks/useDbData";
+import { useRecoilValue } from "recoil";
+import { dbCoordinateColumnsState } from "../../state/atoms/dbDataAtom";
 
 export default function CoordinatesView() {
-    let [tableDataRaw, setTableDataRaw] = useState([]);
-    let [columnData, setColumnData] = useState([]);
+    const {rows} = useDbData();
+    const coordinateColumns = useRecoilValue(dbCoordinateColumnsState);
 
-    const tableInstance = useTable({ columns: columnData, data: tableDataRaw })
-
-    useEffect(() => {
-        async function load() {
-            let rawTableData = await getMainTable();
-            let columns = await getSelectedColumnNames(desiredColumns);
-
-            setTableDataRaw(rawTableData);
-            setColumnData(columns);
-        }
-
-        load();
-    }, [])
+    const tableInstance = useTable({ columns: coordinateColumns, data: rows })
 
     return (
         <main className="main home">
-
             <div className="table-content">
                 <div className="table-header">
                     <h1>

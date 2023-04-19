@@ -11,20 +11,6 @@ import Home from './views/Home';
 import DerivedTableView from './views/tables/DerivedTableView';
 import { dbAclsAtlasColumnsState, dbAclsMapColumnsState, dbCaAtlasColumnsState, dbColumnsState, dbCoordinateColumnsState, dbHarvardLongListColumnsState, dbLpmColumnsState, dbSampleRootColumnsState, dbZoneColumnsState } from './state/atoms/dbDataAtom';
 
-function App() {
-  return (
-    <React.StrictMode>
-      <RecoilRoot>
-        <RouterProvider router={router} />
-      </RecoilRoot>
-    </React.StrictMode>
-  );
-
-}
-
-ReactDOM.createRoot(document.getElementById('root')).render(<App/>)
-
-
 export const tableRoutes = [
   {
     path: "all",
@@ -92,17 +78,31 @@ const router = createBrowserRouter([
     },
     {
       path: "/table",
-      children: tableRoutes.map(tableRoute => ({
-        path: tableRoute.path,
-        element: (
-          <DerivedTableView
-            title={tableRoute.title}
-            subtitle={tableRoute.subtitle}
-            columnsState={tableRoute.state}
-          />
-        )
-      }))
+      children: [
+        {
+          index: true,
+          element: <p></p>
+        },
+        ...tableRoutes.map(tableRoute => ({
+          path: tableRoute.path,
+          element: (
+            <DerivedTableView
+              title={tableRoute.title}
+              subtitle={tableRoute.subtitle}
+              columnsState={tableRoute.state}
+            />
+          )
+        }))
+      ]
     }
   ]
 },
 ]);
+
+ReactDOM.createRoot(document.getElementById('root')).render((
+  <React.StrictMode>
+    <RecoilRoot>
+      <RouterProvider router={router} />
+    </RecoilRoot>
+  </React.StrictMode>
+))

@@ -10,6 +10,7 @@ import "./global.scss"
 import Home from './views/Home';
 import DerivedTableView from './views/tables/DerivedTableView';
 import { dbAclsAtlasColumnsState, dbAclsMapColumnsState, dbCaAtlasColumnsState, dbColumnsState, dbCoordinateColumnsState, dbHarvardLongListColumnsState, dbLpmColumnsState, dbSampleRootColumnsState, dbZoneColumnsState } from './state/atoms/dbDataAtom';
+import AIAssistant from './views/AIAssistant';
 
 export const tableRoutes = [
   {
@@ -77,11 +78,11 @@ const router = createBrowserRouter([
       element: <Home/>
     },
     {
-      path: "/table",
+      path: "table",
       children: [
         {
           index: true,
-          element: <p></p>
+          element: <p>Invalid route</p>
         },
         ...tableRoutes.map(tableRoute => ({
           path: tableRoute.path,
@@ -94,6 +95,10 @@ const router = createBrowserRouter([
           )
         }))
       ]
+    }, 
+    {
+      path: "assistant",
+      element: <AIAssistant/>
     }
   ]
 },

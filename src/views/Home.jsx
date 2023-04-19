@@ -37,6 +37,9 @@ export default function Home() {
                         <li>
                             <a href="https://tcdud-my.sharepoint.com/:p:/r/personal/errityr_tcd_ie/Documents/Expos%C3%A9%20TER.pptx?d=w65d1c93878414af882fb8c9f7f3c5032&csf=1&web=1&e=sZASW6">Initial meeting presentation</a>
                         </li>
+                        <li>
+                            <a href="https://github.com/ParadauxIO/projet-ter-website">Website Source Code</a>
+                        </li>
                     </ul>
                     <span className="footnote">
                         Due to restrictions placed on our Office 365 accounts you will have to request access to the slideshows if you do not already have access.

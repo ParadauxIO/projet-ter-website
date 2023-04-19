@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client'
 import {
   createBrowserRouter,
   RouterProvider,
+  useLocation,
 } from "react-router-dom";
 import { RecoilRoot } from 'recoil'
 import Index from './views/Index';
@@ -32,10 +33,15 @@ const router = createBrowserRouter([
 
 ]);
 
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <RecoilRoot>
-      <RouterProvider router={router} />
-    </RecoilRoot>
-  </React.StrictMode>,
-)
+function App() {
+  return (
+    <React.StrictMode>
+      <RecoilRoot>
+        <RouterProvider router={router} />
+      </RecoilRoot>
+    </React.StrictMode>
+  );
+
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App/>)

@@ -1,6 +1,16 @@
+import { Link } from "react-router-dom"
 import "./Sidebar.scss"
 
-export default function Sidebar() {
+function SidebarLink({active, href, label}) {
+    return (
+        <Link to={href} className={"link" + (active===href ? " active" : "")}>
+            {label}
+        </Link>
+    )
+}
+
+export default function Sidebar({active}) {
+
     return (
         <aside className="sidenav">
             <div className="header-side">
@@ -9,10 +19,9 @@ export default function Sidebar() {
             </div>
 
             <div className="links">
-                <a href="/" className="link active"> Home </a>
-                <a href="/all" className="link"> All data </a>
-                <a href="/coordinates" className="link"> Coordinate Table </a>
-                More to come!
+                <SidebarLink active={active} href="/" label="Home"/>
+                <SidebarLink active={active} href="/all" label="All Data"/>
+                <SidebarLink active={active} href="/coordinates" label="Coordinates Data"/>
             </div>
         </aside>
     )

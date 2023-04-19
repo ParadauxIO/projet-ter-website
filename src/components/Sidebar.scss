@@ -34,7 +34,9 @@
     }
 
     .link.active {
-        border-left: 3px #686868;
+        background-color: #5d5d5d;
+        color: white;
+        border-left: 3px solid #e9e8e8;
     }
 
 }

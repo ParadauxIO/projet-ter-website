@@ -20,28 +20,16 @@ export const tableRoutes = [
     state: dbColumnsState
   },
   {
+    path: "sample-root",
+    title: "Base Table",
+    subtitle: "Data that concerns all records.",
+    state: dbSampleRootColumnsState
+  },
+  {
     path: "sample-coordinates",
     title: "Sample Coordinate Data",
     subtitle: "Details about a sample's coordinates",
     state: dbCoordinateColumnsState
-  },
-  {
-    path: "acls-atlas",
-    title: "ACLS Atlas Data",
-    subtitle: "Atlas details from ACLS",
-    state: dbAclsAtlasColumnsState
-  },
-  {
-    path: "acls-map",
-    title: "ACLS Map Data",
-    subtitle: "Map details from ACLS",
-    state: dbAclsMapColumnsState
-  },
-  {
-    path: "ca-atlas",
-    title: "CA Atlas",
-    subtitle: "Atlas details from CA",
-    state: dbCaAtlasColumnsState
   },
   {
     path: "harvard-long-list",
@@ -50,17 +38,31 @@ export const tableRoutes = [
     state: dbHarvardLongListColumnsState
   },
   {
+    path: "acls-map",
+    title: "ACLS Map Data",
+    subtitle: "Map details from ACLS",
+    state: dbAclsMapColumnsState
+  },
+  {
+    path: "acls-atlas",
+    title: "ACLS Atlas Data",
+    subtitle: "Atlas details from ACLS",
+    state: dbAclsAtlasColumnsState
+  },
+  {
+    path: "ca-atlas",
+    title: "CA Atlas",
+    subtitle: "Atlas details from CA",
+    state: dbCaAtlasColumnsState
+  },
+
+  {
     path: "lpm-data",
     title: "LPM Data",
     subtitle: "Data from LPM",
     state: dbLpmColumnsState
   },
-  {
-    path: "sample-root",
-    title: "Sample Root Data",
-    subtitle: "Data about the sample root.",
-    state: dbSampleRootColumnsState
-  },
+
   {
     path: "zone",
     title: "Italy Zone Data",

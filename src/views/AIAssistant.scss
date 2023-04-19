@@ -1,0 +1,26 @@
+.ai-assistant {
+
+    form {
+        width: 90%;
+        textarea.card {
+            width: 100%;
+        }
+
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+
+        input {
+            margin-left: auto;
+            max-width: 120px;
+            background-color: blanchedalmond;
+            border: none;
+            border-radius: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1rem;
+            font-size: 0.8rem;
+            padding: 0.5rem 1rem;
+        }
+    }
+
+}

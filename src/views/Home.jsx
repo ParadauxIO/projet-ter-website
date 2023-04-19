@@ -1,4 +1,4 @@
-import "./Home.scss"
+import "./MainGrid.scss"
 import "./HomeDashboard.scss"
 
 export default function Home() {

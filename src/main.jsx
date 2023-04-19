@@ -3,14 +3,14 @@ import ReactDOM from 'react-dom/client'
 import {
   createBrowserRouter,
   RouterProvider,
-  useLocation,
 } from "react-router-dom";
 import { RecoilRoot } from 'recoil'
 import Index from './views/Index';
 import "./global.scss"
-import CoordinatesView from './views/tables/CoordinatesView';
 import Home from './views/Home';
 import AllColumnsJoined from './views/tables/AllColumnsJoined';
+import DerivedTableView from './views/tables/DerivedTableView';
+import { dbCoordinateColumnsState } from './state/atoms/dbDataAtom';
 
 const router = createBrowserRouter([
   {
@@ -26,7 +26,11 @@ const router = createBrowserRouter([
     },
     {
       path: "coordinates",
-      element: <CoordinatesView />
+      element: <DerivedTableView 
+                 title="Coordinates Data"
+                 subtitle="Shows co-ordinate data."
+                 columnsState={dbCoordinateColumnsState}
+               />
     }
     ]
   },

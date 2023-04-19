@@ -1,24 +1,25 @@
-import "../Home.scss"
+import "../MainGrid.scss"
 import { useTable } from "react-table";
 import TerTable from "../../components/TerTable";
 import useDbData from "../../state/hooks/useDbData";
 import { useRecoilValue } from "recoil";
-import { dbCoordinateColumnsState } from "../../state/atoms/dbDataAtom";
 
-export default function CoordinatesView() {
+export default function DerivedTableView({columnsState, title, subtitle}) {
     const {rows} = useDbData();
-    const coordinateColumns = useRecoilValue(dbCoordinateColumnsState);
+    const columns = useRecoilValue(columnsState);
 
-    const tableInstance = useTable({ columns: coordinateColumns, data: rows })
+    const tableInstance = useTable({ columns: columns, data: rows })
 
     return (
         <main className="main home">
             <div className="table-content">
                 <div className="table-header">
                     <h1>
-                        Coordinates Table
+                        {title}
                     </h1>
-                    <p> Work in progress, shows only tables with coordinate data </p>
+                    <p> 
+                        {subtitle} 
+                    </p>
                 </div>
                 <div className="my-table">
                     <TerTable table={tableInstance}/>

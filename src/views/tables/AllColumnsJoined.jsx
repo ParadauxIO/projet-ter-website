@@ -1,4 +1,4 @@
-import "../Home.scss"
+import "../MainGrid.scss"
 import { useTable } from "react-table";
 import TerTable from "../../components/TerTable";
 import useDbData from "../../state/hooks/useDbData";

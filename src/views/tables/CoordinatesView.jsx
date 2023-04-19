@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react"
-import "./Home.scss"
-import { getMainTable, getSelectedColumnNames } from "../partials/italyDataHandler"
+import "../Home.scss"
+import { getMainTable, getSelectedColumnNames } from "../../partials/italyDataHandler"
 import { useTable } from "react-table";
-import TerTable from "../components/TerTable";
+import TerTable from "../../components/TerTable";
 
 const desiredColumns = ["name", "coordinates_ge_osm", "s_centre", 
 "coordinates_polygon_ge", "coordinates_centre_georectified", 

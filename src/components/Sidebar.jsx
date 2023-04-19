@@ -10,6 +10,7 @@ export default function Sidebar() {
 
             <div className="links">
                 <a href="/" className="link active"> Home </a>
+                <a href="/all" className="link"> All data </a>
                 <a href="/coordinates" className="link"> Coordinate Table </a>
                 More to come!
             </div>

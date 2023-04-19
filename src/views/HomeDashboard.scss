@@ -1,0 +1,65 @@
+.card {
+    font-family: 'Open Sans', sans-serif;
+    border: 1px solid #CCC;
+    margin: 1.25rem;
+    padding: 1.25rem;
+    font-size: 1.25rem;
+    border-radius: 0.75rem;
+
+    h1 {
+      font-size: 1.5rem;  
+    }
+
+    .italics {
+        font-style: italic;
+    }
+
+    .subtitle {
+        font-weight: 500;
+        font-size: 1.15rem;
+    }
+
+    .footnote {
+        margin-top: 1.25rem;
+        font-size: 1rem;
+        font-style: italic;
+        text-align: center;
+    }
+
+    .statistic {
+        display: flex;
+        flex-direction: column;
+
+        border: 1px solid #CCC;
+        margin-top: 0.75rem;
+        padding: 1rem;
+        .key {
+            font-weight: bold;
+        }
+
+        p {
+            padding-top: 0.25rem;
+            font-size: 1rem;
+            font-style: italic;
+            text-align: center;
+        }
+    }
+
+    ul {
+        li {
+            font-size: 1rem;
+            
+        }
+        a {
+            color: black;
+            border-bottom: 1px solid black;
+            text-decoration: none;
+        }
+    }
+}
+
+.home-dashboard {
+    display: grid;
+    grid-template-columns: 2fr 2fr;
+    grid-row: auto auto;
+}

@@ -7,8 +7,9 @@ import {
 import { RecoilRoot } from 'recoil'
 import Index from './views/Index';
 import "./global.scss"
-import CoordinatesView from './views/CoordinatesView';
+import CoordinatesView from './views/tables/CoordinatesView';
 import Home from './views/Home';
+import AllColumnsJoined from './views/tables/AllColumnsJoined';
 
 const router = createBrowserRouter([
   {
@@ -17,6 +18,10 @@ const router = createBrowserRouter([
     children: [{
       index: true,
       element: <Home/>
+    },
+    {
+      path: "all",
+      element: <AllColumnsJoined />
     },
     {
       path: "coordinates",

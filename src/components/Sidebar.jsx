@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom"
 import "./Sidebar.scss"
+import { tableRoutes } from "../main"
 
 function SidebarLink({active, href, label}) {
     return (
@@ -10,7 +11,6 @@ function SidebarLink({active, href, label}) {
 }
 
 export default function Sidebar({active}) {
-
     return (
         <aside className="sidenav">
             <div className="header-side">
@@ -20,8 +20,13 @@ export default function Sidebar({active}) {
 
             <div className="links">
                 <SidebarLink active={active} href="/" label="Home"/>
-                <SidebarLink active={active} href="/all" label="All Data"/>
-                <SidebarLink active={active} href="/coordinates" label="Coordinates Data"/>
+                {tableRoutes.map(tableRoute => (
+                    <SidebarLink
+                        active={active}
+                        href={"/table/" + tableRoute.path}
+                        label={tableRoute.title}
+                    />
+                ))}
             </div>
         </aside>
     )

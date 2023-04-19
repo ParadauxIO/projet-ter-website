@@ -27,6 +27,12 @@ ReactDOM.createRoot(document.getElementById('root')).render(<App/>)
 
 export const tableRoutes = [
   {
+    path: "all",
+    title: "All Data",
+    subtitle: "All tables joined together (Largely illegible)",
+    state: dbColumnsState
+  },
+  {
     path: "sample-coordinates",
     title: "Sample Coordinate Data",
     subtitle: "Details about a sample's coordinates",
@@ -92,7 +98,7 @@ const router = createBrowserRouter([
           <DerivedTableView
             title={tableRoute.title}
             subtitle={tableRoute.subtitle}
-            columnsState={tableRoute.columnsState}
+            columnsState={tableRoute.state}
           />
         )
       }))

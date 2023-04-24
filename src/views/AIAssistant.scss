@@ -21,6 +21,19 @@
             font-size: 0.8rem;
             padding: 0.5rem 1rem;
         }
+
+        input:hover {
+            background-color: bisque;
+            cursor: pointer;
+        }
     }
 
+    .bold {
+        font-weight: bold;
+    }
 }
+
+.card.user {
+    background-color: lightgray;
+}
+

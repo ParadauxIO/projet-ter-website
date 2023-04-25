@@ -12,6 +12,7 @@ import DerivedTableView from './views/tables/DerivedTableView';
 import { dbAclsAtlasColumnsState, dbAclsMapColumnsState, dbCaAtlasColumnsState, dbColumnsState, dbCoordinateColumnsState, dbHarvardLongListColumnsState, dbLpmColumnsState, dbSampleRootColumnsState, dbZoneColumnsState } from './state/atoms/dbDataAtom';
 import AIAssistant from './views/AIAssistant';
 import MapView from './views/MapView';
+import AddRow from './views/AddRow';
 
 export const tableRoutes = [
   {
@@ -83,6 +84,10 @@ const router = createBrowserRouter([
     {
       path: "maps",
       element: <MapView/>
+    },
+    {
+      path: "add",
+      element: <AddRow/>
     },
     {
       path: "table",

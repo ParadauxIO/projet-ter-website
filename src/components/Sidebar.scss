@@ -39,4 +39,27 @@
         border-left: 3px solid #e9e8e8;
     }
 
+    .sidebar-label {
+        background-color: #eeeeee;
+        text-align: left;
+        padding-left: 1.25rem;
+        font-size: 1.25rem;
+        font-weight: bold;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+    }
+
+    .tables-sublist {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        max-height: 250px;
+        overflow-y: scroll;
+        border-bottom: 3px solid #5d5d5d;
+    }
+
+    .sublink {
+        text-align: left;
+        padding-left: 1.7rem;
+    }
 }

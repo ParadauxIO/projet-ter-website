@@ -1,0 +1,43 @@
+.map-view {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Open Sans', sans-serif;
+
+    .map-header {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        h1 {
+            padding: 1rem;
+            padding-left: 3rem;
+        }
+    }
+
+
+    .center-map {
+        width: 100%;
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: auto;
+    }
+
+    .leaflet-container {
+        background-color: black;
+        width: 75%;
+        height: 75vh;
+        border-radius: 60px;
+        border: 4px solid #CCC;
+        padding: 3px;
+    }
+
+    .leaflet-control-zoom,
+    .leaflet-touch .leaflet-control-zoom {
+        padding: 20px;
+        border: none;
+    }
+}

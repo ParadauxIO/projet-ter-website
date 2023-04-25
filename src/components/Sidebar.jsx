@@ -21,6 +21,7 @@ export default function Sidebar({active}) {
             <div className="links">
                 <SidebarLink active={active} href="/" label="Home"/>
                 <SidebarLink active={active} href="/assistant" label="AI Assistant"/>
+                <SidebarLink active={active} href="/maps" label="Maps"/>
                 {tableRoutes.map(tableRoute => (
                     <SidebarLink
                         active={active}

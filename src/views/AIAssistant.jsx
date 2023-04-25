@@ -68,6 +68,12 @@ export default function AIAssistant() {
                         language feedback and responses!
                     </p>
 
+                    <p>
+                        Currently the AI assistant isn't being given rows from the database 
+                        with which it can respond to questions, so it isn't particularly useful
+                        until then the experience is the same as using the official ChatGPT website.
+                    </p>
+
                     <form onSubmit={onSubmit}>
                         <textarea id="query" className="card" value={form.query} onChange={change}/>
                         {lockInput ? <Spinner/> : <input type="submit" value="submit"/>}

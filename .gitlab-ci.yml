@@ -20,6 +20,7 @@ pages:
   stage: deploy
   variables:
     GIT_STRATEGY: none        # Do not clone git repo
+    PUBLIC_URL: https://errityr.gricad-pages.univ-grenoble-alpes.fr/www-ww2heritage/
   script:
     # Rename the CRA `build` folder to `public`
     - mv dist public         

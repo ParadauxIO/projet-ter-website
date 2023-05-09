@@ -70,10 +70,9 @@ export default function Home() {
                 <div className="card">
                     <h1>To Do</h1>
                     <ul>
-                        <li>Have a preliminary meeting with the team at Swansea</li>
-                        <li>Scan in and build up the database further from the resources provided</li>
-                        <li>Refine the website further to have more options and better access to data</li>
-                        <li>Build an AI assistant to whom you can ask questions about the data.</li>
+                        <li>(In progress) Scan in and build up the database further from the resources provided</li>
+                        <li>(In progress) Refine the website further to have more options and better access to data</li>
+                        <li>(In progress) Build an AI assistant to whom you can ask questions about the data.</li>
                     </ul>
                 </div>
             </div>

@@ -1,7 +1,10 @@
 import "./MainGrid.scss"
 import "./HomeDashboard.scss"
+import useDbData from "../state/hooks/useDbData";
 
 export default function Home() {
+    let {dbItemsRootData} = useDbData();
+
     return (
         <main className="main">
             <div className="card hero">
@@ -18,7 +21,7 @@ export default function Home() {
                     <span className="subtitle">Information at a glance.</span>
                     <div className="statistic">
                         <span className="key">Total Records</span>
-                        <span className="value">0</span>
+                        <span className="value">{dbItemsRootData.data.length}</span>
                         <p>How many records we have scanned and put into the database.</p>
                     </div>
 

@@ -1,20 +1,22 @@
 import { useEffect } from "react";
 import { getColumnNames, getMainTable } from "../../partials/italyDataHandler"
-import { dbColumnsState, dbRowsState } from "../atoms/dbDataAtom";
+import { dbItemsHandbookDataState, dbItemsHarvardListDataState, dbItemsLocationDataState, dbItemsMapDataState, dbItemsProtectedMonumentsDataState, dbItemsRootDataState, dbUiColumnNamesDataState } from "../atoms/dbDataAtom";
 import { useRecoilState } from "recoil";
 
 export default function useDbData() {
-    const [rows, setRows] = useRecoilState(dbRowsState);
-    const [columns, setColumns] = useRecoilState(dbColumnsState);
+    const [dbItemsRootData, set] = useRecoilState(dbItemsRootDataState);
+    const [dbItemsLocationData, setDbItemsLocationData] = useRecoilState(dbItemsLocationDataState);
+    const [dbItemsHarvardListData, setDbItemsHarvardListData] = useRecoilState(dbItemsHarvardListDataState);
+    const [dbItemsMapData, setDbItemsMapData] = useRecoilState(dbItemsMapDataState);
+    const [dbItemsHandbookData, setDbItemsHandbookData] = useRecoilState(dbItemsHandbookDataState);
+    const [dbItemsProtectedMonumentsData, setDbItemsProtectedMonumentsData] = useRecoilState(dbItemsProtectedMonumentsDataState);
+    const [dbUiColumnNamesData, setUiColumnNamesData] = useRecoilState(dbUiColumnNamesDataState);
 
     const load = async () => {
         // Load from the db
         if (!(rows.length == 0 && columns.length == 0)) {
             return;
         }
-
-        setRows(await getMainTable());
-        setColumns(await getColumnNames());
     };
 
     useEffect(() => {
@@ -22,8 +24,8 @@ export default function useDbData() {
     }, []);
 
     return {
-        rows,
-        columns,
-        load
+        dbItemsRootData, dbItemsLocationData, dbItemsHarvardListData, 
+        dbItemsMapData, dbItemsHandbookData, dbItemsProtectedMonumentsData,
+        dbUiColumnNamesData, load
     };
 }

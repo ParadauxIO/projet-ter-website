@@ -1,93 +1,68 @@
 import { atom, selector } from "recoil";
 
-const sampleRootColumns = ["name", "alt_name_1", "alt_name", "town", "country", "region", "province", "notes", "period", "period_2", "associated_with", "damaged_bibliography", "known_damage", "photograph_links"];
-const coordinateColumns = ["name", "coordinates_ge_osm", "s_centre", "coordinates_polygon_ge", "coordinates_centre_georectified", "archives_list", "archives_list_text"];
-const harvardLongListColumns = ["name", "harvard_long_list", "harvard_long_list_stars", "harvard_long_list_text", "harvard_short_list", "harvard_short_list_text"];
-const aclsMapColumns = ["name", "acls_map_name", "acls_map_type", "acls_map_stars", "acls_map_grid_reference", "acls_map_address", "acls_map_text", "acls_map_image_links", "acs_map_image_links"];
-const aclsAtlasColumns = ["name", "acls_atlas_title", "acls_atlas_type", "acls_atlas_stars", "acls_atlas_grid_reference", "acls_atlas_address"];
-const caAtlasColumns = ["name", "ca_atlas_text", "ca_handbook", "ca_handbook_type", "ca_handbook_stars", "ca_handbook_address", "ca_handbook_text"];
-
-const lpmColumns = ["name", "lpm_vol", "lpm_stars", "lpm_military_grid", "lpm_text"];
-const zoneColumns = ["name", "zone_handbook_vol", "zone_handbook_aux_list", "zone_hb_text"];
-
-export const dbColumnsState = atom({
-    key: "dbColumnsState",
-    default: [],
-});
-
-export const dbRowsState = atom({
-    key: "dbRowsState",
-    default: [],
-});
-
-export const dbCoordinateColumnsState = selector({
-    key: 'dbCoordinateColumnsState',
-    get: ({get}) => {
-      return get(dbColumnsState).filter(item =>
-        coordinateColumns.includes(item.accessor)
-      )
-    },
-});
-
-export const dbAclsAtlasColumnsState = selector({
-  key: "dbAclsAtlasColumnsState",
-  get: ({get}) => {
-    return get(dbColumnsState).filter(item =>
-      aclsAtlasColumns.includes(item.accessor)
-    )
+export const dbItemsRootDataState = atom({
+  key: "dbItemsRootData",
+  default: {
+    data: [],
+    table: "",
+    columns: ["internal_id", "name", "alternative_names", "associated_with", "association_type", "damage", 
+              "notes", "period", "photograph_links", "bibliography_damage"]
   }
 });
 
-export const dbAclsMapColumnsState = selector({
-  key: "dbAclsMapColumnsState",
-  get: ({get}) => {
-    return get(dbColumnsState).filter(item =>
-      aclsMapColumns.includes(item.accessor)
-    )
+export const dbItemsLocationDataState = atom({
+  key: "dbItemsLocationData",
+  default: {
+    data: [],
+    table: "",
+    columns: ["id", "town", "country", "region", "province", "location_type", "coordinates"]
   }
 });
 
-export const dbCaAtlasColumnsState = selector({
-  key: "dbCaAtlasColumnsState",
-  get: ({get}) => {
-    return get(dbColumnsState).filter(item =>
-      caAtlasColumns.includes(item.accessor)
-    )
+export const dbItemsHarvardListDataState = atom({
+  key: "dbItemsHarvardListData",
+  default: {
+    data: [],
+    table: "",
+    columns: ["id", "long_list_stars", "long_list_text", "short_list_text"]
   }
 });
 
-export const dbHarvardLongListColumnsState = selector({
-  key: "dbHarvardLongListColumnsState",
-  get: ({get}) => {
-    return get(dbColumnsState).filter(item =>
-      harvardLongListColumns.includes(item.accessor)
-    )
+export const dbItemsMapDataState = atom({
+  key: "dbItemsMapData",
+  default: {
+    data: [],
+    table: "",
+    columns: ["id", "acls_name", "acls_location_type", "acls_stars", "acls_grid_reference", "acls_address", 
+              "acls_atlas_text", "acls_map_links", "ca_atlas_title", "ca_atlas_type", "ca_atlas_stars", 
+              "ca_atlas_grid_reference", "ca_atlas_address", "ca_atlas_text", "ca_atlas_links"]
   }
 });
 
-export const dbLpmColumnsState = selector({
-  key: "dbLpmColumnsState",
-  get: ({get}) => {
-    return get(dbColumnsState).filter(item =>
-      lpmColumns.includes(item.accessor)
-    )
+export const dbItemsHandbookDataState = atom({
+  key: "dbItemsHandbookData",
+  default: {
+    data: [],
+    table: "",
+    columns: ["id", "ca_hb_name", "ca_hb_type", "ca_hb_stars", "ca_hb_address", "ca_hb_text", "zone_hb_volume", 
+              "zone_hb_number", "zone_hb_aux_list", "zone_hb_text"]
   }
 });
 
-export const dbSampleRootColumnsState = selector({
-  key: "dbSampleRootColumnsState",
-  get: ({get}) => {
-    return get(dbColumnsState).filter(item =>
-      sampleRootColumns.includes(item.accessor)
-    )
+export const dbItemsProtectedMonumentsDataState = atom({
+  key: "dbItemsProtectedMonumentsData",
+  default: {
+    data: [],
+    table: "",
+    columns: ["id", "lpm_volume", "lpm_stars", "lpm_military_grid", "lpm_text"]
   }
 });
 
-export const dbZoneColumnsState = selector({
-  key: "dbZoneColumnsState",
-  get: ({get}) => {
-    return get(dbColumnsState).filter(item =>
-      zoneColumns.includes(item.accessor)
-    )
+export const dbUiColumnNamesDataState = atom({
+  key: "dbUiColumnNamesData",
+  default: {
+    data: [],
+    table: "",
+    columns: ["field", "headerName", "filter", "sortable", "type"]
   }
-});
+})

@@ -95,7 +95,9 @@ export default function useDbData() {
         // console.log(dbUiColumnNamesData)
         for (let column of dbUiColumnNamesData.data) {
             if (column.field === field) {
-                return column;
+                let x = {...column}
+                x.type = "text" 
+                return x;
             }
         }
 

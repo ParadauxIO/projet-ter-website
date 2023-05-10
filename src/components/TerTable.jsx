@@ -8,22 +8,24 @@ import useDbData from '../state/hooks/useDbData';
 
 export default function TerTable({state}) {
     let {data, columns} = useRecoilValue(state);
-    console.log(columns);
     let {getColumnName} = useDbData();
-    
-    let columnObjs = columns.map((c) => ({
-        field: c,
-        headerName: c,
-        sortable: true,
-        editable: true
-    }))
+
+    let columnObjs = columns.map((c) => {
+      let columnName = {...getColumnName(c)};
+      
+      if (columnName == null) {
+        return {field: c, headerName: c}
+      }
+
+      columnName.headerName = columnName.headername;
+      return columnName;
+    })
 
     return (
         <div className="ag-theme-alpine ter-table">
         <AgGridReact
           columnDefs={columnObjs}
           rowData={data}
-          style={{ height: 400, width: 600 }}
         />
       </div>
     )

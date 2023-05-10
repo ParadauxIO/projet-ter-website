@@ -13,14 +13,14 @@ import AIAssistant from './views/AIAssistant';
 import MapView from './views/MapView';
 import AddRow from './views/AddRow';
 import TestPage from './views/TestPage';
-import { dbItemsHandbookDataState, dbItemsHarvardListDataState, dbItemsLocationDataState, dbItemsMapDataState, dbItemsProtectedMonumentsDataState, dbItemsRootDataState } from './state/atoms/dbDataAtom';
+import { dbItemsDataState, dbItemsHandbookDataState, dbItemsHarvardListDataState, dbItemsLocationDataState, dbItemsMapDataState, dbItemsProtectedMonumentsDataState, dbItemsRootDataState } from './state/atoms/dbDataAtom';
 
 export const tableRoutes = [
   {
     path: "all",
     title: "All Data",
     subtitle: "All tables joined together (Largely illegible)",
-    state: null
+    state: dbItemsDataState
   },
   {
     path: "root-data",
@@ -93,7 +93,7 @@ const router = createBrowserRouter([
             <DerivedTableView
               title={tableRoute.title}
               subtitle={tableRoute.subtitle}
-              columnsState={tableRoute.state}
+              state={tableRoute.state}
             />
           )
         }))

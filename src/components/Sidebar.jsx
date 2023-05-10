@@ -29,6 +29,7 @@ export default function Sidebar({active}) {
                 <div className="tables-sublist">
                     {tableRoutes.map(tableRoute => (
                         <SidebarLink
+                            key={tableRoute.path}
                             active={active}
                             href={"/table/" + tableRoute.path}
                             label={tableRoute.title}

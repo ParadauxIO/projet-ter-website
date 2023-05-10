@@ -1,9 +1,10 @@
 import { useEffect } from "react";
-import { dbItemsHandbookDataState, dbItemsHarvardListDataState, dbItemsLocationDataState, dbItemsMapDataState, dbItemsProtectedMonumentsDataState, dbItemsRootDataState, dbUiColumnNamesDataState } from "../atoms/dbDataAtom";
-import { useRecoilState } from "recoil";
+import { dbItemsDataState, dbItemsHandbookDataState, dbItemsHarvardListDataState, dbItemsLocationDataState, dbItemsMapDataState, dbItemsProtectedMonumentsDataState, dbItemsRootDataState, dbUiColumnNamesDataState } from "../atoms/dbDataAtom";
+import { useRecoilState, useRecoilValue } from "recoil";
 import { getData } from "../../partials/italyDataHandler";
 
 export default function useDbData() {
+    const dbItemsData = useRecoilValue(dbItemsDataState);
     const [dbItemsRootData, setDbItemsRootData] = useRecoilState(dbItemsRootDataState);
     const [dbItemsLocationData, setDbItemsLocationData] = useRecoilState(dbItemsLocationDataState);
     const [dbItemsHarvardListData, setDbItemsHarvardListData] = useRecoilState(dbItemsHarvardListDataState);
@@ -75,8 +76,9 @@ export default function useDbData() {
         } 
 
         if (isEmpty(dbUiColumnNamesData)) {
+            console.log("loading db names")
             let data = await getData(dbUiColumnNamesData.table);
-            setDbItemsProtectedMonumentsData((prev) => {
+            setUiColumnNamesData((prev) => {
                 return {
                     ...prev,
                     data
@@ -89,10 +91,21 @@ export default function useDbData() {
         load();
     }, []);
 
+    const getColumnName = (field) => {
+        // console.log(dbUiColumnNamesData)
+        for (let column of dbUiColumnNamesData.data) {
+            if (column.field === field) {
+                return column;
+            }
+        }
+
+        return null;
+    }
+
     return {
         dbItemsRootData, dbItemsLocationData, dbItemsHarvardListData, 
         dbItemsMapData, dbItemsHandbookData, dbItemsProtectedMonumentsData,
-        dbUiColumnNamesData, load
+        dbUiColumnNamesData, load, getColumnName, dbItemsData
     };
 }
 

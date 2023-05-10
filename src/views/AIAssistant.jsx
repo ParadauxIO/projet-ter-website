@@ -43,7 +43,6 @@ export default function AIAssistant() {
         setLockInput(false);
 
         setHistory(data.new_history);
-        console.log(data);
     }
 
     function change(event) {

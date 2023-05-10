@@ -1,50 +1,32 @@
-import "./TerTable.scss"
+import { AgGridReact } from 'ag-grid-react'; 
+import 'ag-grid-community/styles/ag-grid.css'; 
+import 'ag-grid-community/styles/ag-theme-alpine.css'; 
 
-export default function TerTable({ table }) {
-    const {
-        getTableProps,
-        getTableBodyProps,
-        headerGroups,
-        rows,
-        prepareRow
-    } = table
+import "./TerTable.scss"
+import { useRecoilValue } from 'recoil';
+import useDbData from '../state/hooks/useDbData';
+
+export default function TerTable({state}) {
+    let {data, columns} = useRecoilValue(state);
+    let {getColumnName} = useDbData();
+
+    let columnObjs = columns.map((c) => {
+      let columnName = {...getColumnName(c)};
+      
+      if (columnName == null) {
+        return {field: c, headerName: c}
+      }
+
+      columnName.headerName = columnName.headername;
+      return columnName;
+    })
 
     return (
-        <table className="ter-table" {...getTableProps()}>
-            <thead>
-                {
-                    headerGroups.map(headerGroup => (
-                        <tr {...headerGroup.getHeaderGroupProps()}>
-                            {
-                                headerGroup.headers.map(column => (
-                                    <th {...column.getHeaderProps()}>
-                                        {
-                                            column.render('Header')
-                                        }
-                                    </th>
-                                ))}
-                        </tr>
-                    ))}
-            </thead>
-            <tbody {...getTableBodyProps()}>
-                {
-                    rows.map(row => {
-                        prepareRow(row)
-                        return (
-                            <tr {...row.getRowProps()}>
-                                {
-                                    row.cells.map(cell => {
-                                        return (
-                                            <td {...cell.getCellProps()}>
-                                                {
-                                                    cell.render('Cell')}
-                                            </td>
-                                        )
-                                    })}
-                            </tr>
-                        )
-                    })}
-            </tbody>
-        </table>
+        <div className="ag-theme-alpine ter-table">
+        <AgGridReact
+          columnDefs={columnObjs}
+          rowData={data}
+        />
+      </div>
     )
 }

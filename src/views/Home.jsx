@@ -3,7 +3,7 @@ import "./HomeDashboard.scss"
 import useDbData from "../state/hooks/useDbData";
 
 export default function Home() {
-    let {rows} = useDbData();
+    let {dbItemsRootData} = useDbData();
 
     return (
         <main className="main">
@@ -21,7 +21,7 @@ export default function Home() {
                     <span className="subtitle">Information at a glance.</span>
                     <div className="statistic">
                         <span className="key">Total Records</span>
-                        <span className="value">{rows.length}</span>
+                        <span className="value">{dbItemsRootData.data.length}</span>
                         <p>How many records we have scanned and put into the database.</p>
                     </div>
 
@@ -70,10 +70,9 @@ export default function Home() {
                 <div className="card">
                     <h1>To Do</h1>
                     <ul>
-                        <li>Have a preliminary meeting with the team at Swansea</li>
-                        <li>Scan in and build up the database further from the resources provided</li>
-                        <li>Refine the website further to have more options and better access to data</li>
-                        <li>Build an AI assistant to whom you can ask questions about the data.</li>
+                        <li>(In progress) Scan in and build up the database further from the resources provided</li>
+                        <li>(In progress) Refine the website further to have more options and better access to data</li>
+                        <li>(In progress) Build an AI assistant to whom you can ask questions about the data.</li>
                     </ul>
                 </div>
             </div>
